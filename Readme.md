@@ -429,8 +429,7 @@ part of your Terraform template. The encryption key must not be shared with othe
 
 2. Pull Request Merged Workflow.
 
-&nbsp;A. Add another GitHub actions workflow and configure it to be triggered when a pull request is
-merged. This workflow should do the following:
+&nbsp;A. Add another GitHub actions workflow and configure it to be triggered when a pull request is merged. This workflow should do the following:
 
 &nbsp;&nbsp;a. Run the unit test.
 
