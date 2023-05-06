@@ -318,14 +318,14 @@ Instead of launching standalone EC2 instances, we are now going to launch them i
 Launch Configuration
 
 | Key                                                            | Value|
-ImageId                                                    Your custom AMI
-Instance Type                                              t2.micro            
-KeyName                                                    YOUR_AWS_KEYNAME
-AssociatePublicIpAddress                                   True
-UserData                                                   SAME_USER_DATA_AS_CURRENT_EC2_INSTANCE
-IAM Role                                                   SAME_AS_CURRENT_EC2_INSTANCE
-Resource Name                                              asg_launch_config
-Security Group                                             WebAppSecurityGroup
+|ImageId                                                   | Your custom AMI|
+|Instance Type                                              |t2.micro|            
+|KeyName                                                    |YOUR_AWS_KEYNAME|
+|AssociatePublicIpAddress                                   |True|
+|UserData                                                   |SAME_USER_DATA_AS_CURRENT_EC2_INSTANCE|
+|IAM Role                                                   |SAME_AS_CURRENT_EC2_INSTANCE|
+|Resource Name                                              |asg_launch_config|
+|Security Group                                             |WebAppSecurityGroup|
 
   
 ##  Auto Scaling Group
