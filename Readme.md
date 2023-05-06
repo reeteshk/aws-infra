@@ -441,14 +441,13 @@ merged. This workflow should do the following:
 
 &nbsp;&nbsp; &nbsp; 1. Upgrade OS packages
 
-&nbsp; &nbsp;&nbsp;2. Install dependencies (python, node.js, etc.)
+&nbsp;&nbsp;&nbsp;2. Install dependencies (python, node.js, etc.)
 
-&nbsp; &nbsp;&nbsp; 3. Install application dependencies (pip install for Python)
+&nbsp;&nbsp;&nbsp;3. Install application dependencies (pip install for Python)
 
-&nbsp; &nbsp;&nbsp; 4. Set up the application by copying the application artifacts and the
-   configuration files
+&nbsp; &nbsp;&nbsp;4. Set up the application by copying the application artifacts and the configuration files
   
-  &nbsp;&nbsp; 5. Configure the application to start automatically when VM is launched.
+&nbsp;&nbsp;&nbsp;5. Configure the application to start automatically when VM is launched.
 
 &nbsp;&nbsp;e. Create a new Launch Template version with the latest AMI ID for the autoscaling group. The autoscaling group should be configured to use the latest version of the Launch Template.
 
