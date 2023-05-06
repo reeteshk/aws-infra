@@ -422,8 +422,9 @@ part of your Terraform template. The encryption key must not be shared with othe
 
 1. Pull Request Raised Workflow.
 
- a. Add a GitHub Action workflow to run the application unit tests for each pull request raised. 
- b. A pull request can only be merged if the workflow  
+ &nbsp; a. Add a GitHub Action workflow to run the application unit tests for each pull request raised. 
+ 
+ &nbsp;b. A pull request can only be merged if the workflow  
  executes successfully.
 
 2. Pull Request Merged Workflow.
