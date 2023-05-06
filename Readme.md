@@ -332,12 +332,13 @@ Launch Configuration
 ##  Auto Scaling Group
 Note: You should add tags (https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html) (AutoScalingGroup TagProperty (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as- tags.html) ) to the EC2 instances in your Auto Scaling Group.
 
-Parameter                                                  Value
-Cooldown                                                   60
-LaunchConfigurationName                                    asg_launch_config
-MinSize                                                    1
-MaxSize                                                    3
-DesiredCapacity                                            1
+|Parameter                                                 | Value|
+|:------------------------|:-------------------------|
+|Cooldown                                                   |60|
+|LaunchConfigurationName                                    |asg_launch_config|
+|MinSize                                                    |1|
+|MaxSize                                                    |3|
+|DesiredCapacity                                            |1|
   
  
 
