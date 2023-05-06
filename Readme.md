@@ -195,3 +195,56 @@ Create an IAM role EC2-CSYE6225 for the EC2 service and attach the WebAppS3 poli
 
 ## Web Application
 The web application’s database must be the RDS instance launched by the Terraform template when running on the EC2 instance. You can no longer install/use the local database on the EC2 instance.
+
+
+# Assignment-6 Domain Name System (DNS),Amazon Route 53 For DNS Service
+
+## Domain Name System (DNS) Setup
+
+###  Register Domain Name
+
+Namecheap Domains: Only .me TLD domains are free for students.
+
+1. Register a domain name with a domain registrar such as Namecheap (https://www.namecheap.com/domains/registration.aspx) . Namecheap offers a free domain with the Github Student Developer pack (https://education.github.com/pack) .
+
+2. Your domain name can be anything.
+
+## Configuring Amazon Route 53 For DNS Service
+
+Your new domain will be set up to use the registrar’s name servers by default. You will need to make the following changes.
+
+CREATE HOSTED ZONE FOR THE DOMAIN IN THE ROOT AWS ACCOUNT
+
+This setup is done manually from the AWS console.
+1. Create a public hosted zone (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) in Amazon Route 53 (https://aws.amazon.com/route53/) for the domain yourdomainname.tld .
+
+2. Configure Namecheap to use custom name servers (https://www.namecheap.com/support/knowledgebase/article.aspx/767/10/how-can-i-change-the- nameservers-for-my-domain) provided by Amazon Route 53 (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/GetInfoAboutHostedZone.html) to use the Route53 name servers.
+
+CREATE A SUBDOMAIN & HOSTED ZONE FOR THE DEV AWS ACCOUNT
+
+This setup is done manually from the AWS console.
+
+1. Create a public hosted zone (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) in Amazon
+Route 53 (https://aws.amazon.com/route53/) for the subdomain dev.yourdomainname.tld .
+
+2. Configure name servers for the subdomain in the root account. See docs (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html) .
+
+
+CREATE A SUBDOMAIN & HOSTED ZONE FOR THE DEMO AWS ACCOUNT
+
+This setup is done manually from the AWS console.
+
+1. Create a public hosted zone (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) in Amazon Route 53 (https://aws.amazon.com/route53/) for the subdomain prod.yourdomainname.tld .
+
+2. Configure name servers for the subdomain in the root account. See docs (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html) .
+
+
+## Infrastructure as Code w/Terraform 
+### DNS & EC2 Instance A Record
+
+Route53 should be updated from the Terraform template.
+
+The Terraform template should add/update A record to the Route53 zone so that your domain points to your EC2 instance and your web application is accessible thru http://your-domain-name.tld/ (http://your-domain-name.tld/) .
+
+Your application must be accessible using root context i.e. http://your-domain-name.tld/ (http://https//your-domain-name.tld/) and not http://your-domain-name.tld/app-0.1/ (http://your- domain-name.tld/app-0.1/)
+
