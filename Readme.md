@@ -430,6 +430,7 @@ part of your Terraform template. The encryption key must not be shared with othe
 
 &nbsp;A. Add another GitHub actions workflow and configure it to be triggered when a pull request is
 merged. This workflow should do the following:
+
 &nbsp;&nbsp;a. Run the unit test.
 
 &nbsp;&nbsp;b. Validate Packer Template
