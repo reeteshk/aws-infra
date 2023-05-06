@@ -380,3 +380,65 @@ JMeter tests need to make 500 concurrent API calls to your application.
 
 JMeter tests should be stored in your application's GitHub repository.
 
+
+# Assignment #09 CI/CD for Web Application,Encrypted EBS Volumes,Encrypted RDS Instances
+
+
+## Setup Application Load Balancer For Your Web Application
+
+Set up an Application load balancer to accept HTTPS traffic on port 443 and forward it to your application instances on whatever port it listens on.
+
+You are not required to support HTTP to HTTPS redirection. Attach the load balancer security group to the load balancer.
+
+## Secure Application Endpoints
+
+Warning: Do not store your SSL certificates in the GitHub repository.
+
+Secure your web application endpoints with valid SSL certificates.
+
+For dev environment, you may use the AWS Certificate Manager (https://aws.amazon.com/certificate-manager/) service to get SSL certificates.
+
+For prod environment, you must request an SSL certificate from Namecheap (https://www.namecheap.com/) or any other SSL vendor except for AWS Certificate Manager, import it into AWS Certificate Manager (https://aws.amazon.com/certificate-manager/) from your CLI, and then configure your load balancer to use the imported certificate.
+
+The command to import the certificate must be documented in your README.md file. Plain text requests sent to HTTP do not have to be supported.
+HTTP to HTTPS redirection is not required.
+
+Traffic from the load balancer to the EC2 instance can use plain text protocol such as HTTP. 
+
+Users should not be able to connect to the EC2 instance directly.
+
+## Encrypted EBS Volumes
+All EC2 instances must now be launched with encrypted EBS volumes.
+
+EBS volumes must be encrypted with Customer managed key created as part of your Terraform template.
+
+## Encrypted RDS Instances
+
+RDS instances launched should be encrypted with (a separate) Customer managed key created as
+
+part of your Terraform template. The encryption key must not be shared with other resources.
+
+## CI/CD for Web Application
+
+1. Pull Request Raised Workflow.
+
+ a. Add a GitHub Action workflow to run the application unit tests for each pull request raised. 
+ b. A pull request can only be merged if the workflow  
+ executes successfully.
+
+2. Pull Request Merged Workflow.
+
+&nbsp;A. Add another GitHub actions workflow and configure it to be triggered when a pull request is
+merged. This workflow should do the following:
+&nbsp;&nbsp;a. Run the unit test.
+&nbsp;&nbsp;b. Validate Packer Template
+&nbsp;&nbsp;c. Build Application Artifact(s)
+&nbsp;&nbsp;d. Build AMI
+  &nbsp;&nbsp; &nbsp; 1. Upgrade OS packages
+  &nbsp; &nbsp;&nbsp;2. Install dependencies (python, node.js, etc.)
+ &nbsp; &nbsp;&nbsp; 3. Install application dependencies (pip install for Python)
+ &nbsp; &nbsp;&nbsp; 4. Set up the application by copying the application artifacts and the
+   configuration files
+  &nbsp;&nbsp; 5. Configure the application to start automatically when VM is launched.
+&nbsp;B. Create a new Launch Template version with the latest AMI ID for the autoscaling group. The autoscaling group should be configured to use the latest version of the Launch Template.
+&nbsp;f. Issue command to the auto-scale group to do an instance refresh.
