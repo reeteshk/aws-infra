@@ -370,7 +370,7 @@ Route53 resource record for your domain name should now be an alias for your loa
 
 The Terraform template should configure Route53 so that your domain points to your load balancer and your web application is accessible thru http://your-domain-name.tld/ (http://your-domain-name.tld/) .
 
-Your application must be accessible using root context i.e. http://your-domain-name.tld/ (http://https//your-domain-name.tld/) and not http://your-domain-name.tld/app-0.1/(http://your- domain-name.tld/app-0.1/)
+Your application must be accessible using root context i.e. http://your-domain-name.tld/(http://https//your-domain-name.tld/) and not http://your-domain-name.tld/app-0.1/(http://your- domain-name.tld/app-0.1/)
 
 ## Create JMeter Load Testing Script
 
