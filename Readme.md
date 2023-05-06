@@ -317,7 +317,7 @@ Instead of launching standalone EC2 instances, we are now going to launch them i
 
 Launch Configuration
 
-Key                                                             Value
+| Key                                                            | Value|
 ImageId                                                    Your custom AMI
 Instance Type                                              t2.micro            
 KeyName                                                    YOUR_AWS_KEYNAME
