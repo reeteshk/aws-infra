@@ -320,21 +320,14 @@ Launch Configuration
 | Key                                                            | Value|
 |:------------------------|:-------------------------|
 |ImageId                                                   | Your custom AMI|
-
 |Instance Type                                              |t2.micro|
-
 |KeyName                                                    |YOUR_AWS_KEYNAME|
-
 |AssociatePublicIpAddress                                   |True|
-
 |UserData                                                   |SAME_USER_DATA_AS_CURRENT_EC2_INSTANCE|
-
 |IAM Role                                                   |SAME_AS_CURRENT_EC2_INSTANCE|
-
 |Resource Name                                              |asg_launch_config|
-
 |Security Group                                             |WebAppSecurityGroup|
-|:------------------------|:-------------------------|
+
   
 ##  Auto Scaling Group
 Note: You should add tags (https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html) (AutoScalingGroup TagProperty (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as- tags.html) ) to the EC2 instances in your Auto Scaling Group.
