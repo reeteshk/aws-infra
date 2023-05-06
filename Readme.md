@@ -422,32 +422,32 @@ part of your Terraform template. The encryption key must not be shared with othe
 
 1. Pull Request Raised Workflow.
 
- $~$a. Add a GitHub Action workflow to run the application unit tests for each pull request raised. 
+ &nbsp;a. Add a GitHub Action workflow to run the application unit tests for each pull request raised. 
  
- $~$b. A pull request can only be merged if the workflow executes successfully.
+ &nbsp;b. A pull request can only be merged if the workflow executes successfully.
 
 2. Pull Request Merged Workflow.
 
 &nbsp;A. Add another GitHub actions workflow and configure it to be triggered when a pull request is merged. This workflow should do the following:
 
-&nbsp;&nbsp;a. Run the unit test.
+&nbsp; &nbsp;a. Run the unit test.
 
-&nbsp;&nbsp;b. Validate Packer Template
+&nbsp; &nbsp;b. Validate Packer Template
 
-&nbsp;&nbsp;c. Build Application Artifact(s)
+&nbsp; &nbsp;c. Build Application Artifact(s)
 
-&nbsp;&nbsp;d. Build AMI
+&nbsp; &nbsp;d. Build AMI
 
-&nbsp;&nbsp; &nbsp; 1. Upgrade OS packages
+&nbsp; &nbsp; &nbsp; 1. Upgrade OS packages
 
-&nbsp;&nbsp;&nbsp;2. Install dependencies (python, node.js, etc.)
+&nbsp; &nbsp; &nbsp;2. Install dependencies (python, node.js, etc.)
 
-&nbsp;&nbsp;&nbsp;3. Install application dependencies (pip install for Python)
+&nbsp; &nbsp; &nbsp;3. Install application dependencies (pip install for Python)
 
-&nbsp; &nbsp;&nbsp;4. Set up the application by copying the application artifacts and the configuration files
+&nbsp; &nbsp; &nbsp;4. Set up the application by copying the application artifacts and the configuration files
   
-&nbsp;&nbsp;&nbsp;5. Configure the application to start automatically when VM is launched.
+&nbsp; &nbsp; &nbsp;5. Configure the application to start automatically when VM is launched.
 
-&nbsp;&nbsp;e. Create a new Launch Template version with the latest AMI ID for the autoscaling group. The autoscaling group should be configured to use the latest version of the Launch Template.
+&nbsp; &nbsp;e. Create a new Launch Template version with the latest AMI ID for the autoscaling group. The autoscaling group should be configured to use the latest version of the Launch Template.
 
-&nbsp;&nbsp;f. Issue command to the auto-scale group to do an instance refresh.
+&nbsp; &nbsp;f. Issue command to the auto-scale group to do an instance refresh.
